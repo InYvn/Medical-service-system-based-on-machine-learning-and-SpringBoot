@@ -19,7 +19,7 @@
 
 - **后端**：SpringBoot、MyBatis、MySQL
 - **前端**：Vue.js、Element UI
-- **小程序**：微信开发者工具、uni-app
+- **小程序**：微信开发者工具、Vant Weapp
 - **数据处理与机器学习**：Python、Scikit-learn、Pandas
 
 ## 快速开始
