@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/my/my",
+    "pages/appointment/appointment",
+    "pages/medcine/medcine",
+    "pages/baseinformation/baseinformation",
+    "pages/myAppointment/myAppointment",
+    "pages/diseasePredict/diseasePredict",
+    "pages/faceEntry/faceEntry",
+    "pages/faceRecognition/faceRecognition",
+    "pages/HeartPredict/HeartPredict"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-tag": "@vant/weapp/tag/index"
+  },
+  "tabBar": {
+    "selectedColor": "#1989FA",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home_un.png",
+        "selectedIconPath": "images/home_ck.png"
+      },
+      {
+        "pagePath": "pages/appointment/appointment",
+        "text": "预约",
+        "iconPath": "images/appointment_un.png",
+        "selectedIconPath": "images/appointment_ck.png"
+      },
+      {
+        "pagePath": "pages/medcine/medcine",
+        "text": "取药",
+        "iconPath": "images/medcine_un.png",
+        "selectedIconPath": "images/medcine_ck.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my_un.png",
+        "selectedIconPath": "images/my_ck.png"
+      }
+    ]
+  }
+}

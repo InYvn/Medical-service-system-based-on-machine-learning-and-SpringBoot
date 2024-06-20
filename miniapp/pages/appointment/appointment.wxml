@@ -1,0 +1,131 @@
+<!--pages/appointment/appointment.wxml-->
+
+<view wx:if="{{!user.id}}">
+  <view style="padding: 20rpx 0; margin-top: 50rpx;">
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      未查询到账号
+    </view>
+    <view style="font-size: 45rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      请先前往“我的”进行登录/注册
+    </view>
+    <view style="margin: 60rpx 100rpx">
+      <van-button type="primary" bind:click="goToMy">前往“我的”</van-button>
+    </view>
+  </view>
+</view>
+
+<view wx:elif="{{!user.realname}}">
+  <view style="padding: 20rpx 0; margin-top: 50rpx;">
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      未查询到就诊信息
+    </view>
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      请先点击下方按钮添加
+    </view>
+  </view>
+  <view style="margin: 60rpx 100rpx">
+    <van-button type="primary" bind:click="addInformation">添加就诊信息</van-button>
+  </view>
+</view>
+
+
+  <view wx:if="{{user.realname}}">
+    <view style="padding: 50rpx 0;background-color: white;"></view>
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA; background-color: white; padding: 30rpx;">
+      预约挂号
+    </view>
+    <view style="padding: 10rpx 0;background-color: white;">
+    </view>
+    <!-- <view style="padding: 20rpx 0; margin-top: 0rpx;">
+      <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+        预约挂号
+      </view>
+    </view> -->
+
+    <!-- <van-divider /> -->
+    <view>
+      <van-tabs active="{{ active }}" bind:change="onChangeTab" animated color="#1989FA">
+        <van-tab title="妇产科">
+          <view wx:for="{{doctorList1}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="医生姓名" value="{{ item.dname }}" />
+              <van-cell title="医生性别" value="{{ item.dsex }}" />
+              <van-cell title="医生职位" value="{{ item.position }}" />
+              <van-cell title="联系电话" value="{{ item.dphone }}" />
+              <view data-index="{{index}}" bindtap="showPopup">
+                <van-button type="primary">立即预约</van-button>
+              </view>
+            </van-cell-group>
+          </view>
+        </van-tab>
+        <van-tab title="儿科">
+          <view wx:for="{{doctorList2}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="医生姓名" value="{{ item.dname }}" />
+              <van-cell title="医生性别" value="{{ item.dsex }}" />
+              <van-cell title="医生职位" value="{{ item.position }}" />
+              <van-cell title="联系电话" value="{{ item.dphone }}" />
+              <view data-index="{{index}}" bindtap="showPopup">
+                <van-button type="primary">立即预约</van-button>
+              </view>
+            </van-cell-group>
+          </view>
+        </van-tab>
+        <van-tab title="感染科">
+          <view wx:for="{{doctorList3}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="医生姓名" value="{{ item.dname }}" />
+              <van-cell title="医生性别" value="{{ item.dsex }}" />
+              <van-cell title="医生职位" value="{{ item.position }}" />
+              <van-cell title="联系电话" value="{{ item.dphone }}" />
+              <view data-index="{{index}}" bindtap="showPopup">
+                <van-button type="primary">立即预约</van-button>
+              </view>
+            </van-cell-group>
+          </view>
+        </van-tab>
+        <van-tab title="内科">
+          <view wx:for="{{doctorList4}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="医生姓名" value="{{ item.dname }}" />
+              <van-cell title="医生性别" value="{{ item.dsex }}" />
+              <van-cell title="医生职位" value="{{ item.position }}" />
+              <van-cell title="联系电话" value="{{ item.dphone }}" />
+              <view data-index="{{index}}" bindtap="showPopup">
+                <van-button type="primary">立即预约</van-button>
+              </view>
+            </van-cell-group>
+          </view>
+        </van-tab>
+        <van-tab title="外科">
+          <view wx:for="{{doctorList5}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="医生姓名" value="{{ item.dname }}" />
+              <van-cell title="医生性别" value="{{ item.dsex }}" />
+              <van-cell title="医生职位" value="{{ item.position }}" />
+              <van-cell title="联系电话" value="{{ item.dphone }}" />
+              <view data-index="{{index}}" bindtap="showPopup">
+                <van-button type="primary">立即预约</van-button>
+              </view>
+            </van-cell-group>
+          </view>
+        </van-tab>
+        <van-tab title="骨科">
+          <view wx:for="{{doctorList6}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="医生姓名" value="{{ item.dname }}" />
+              <van-cell title="医生性别" value="{{ item.dsex }}" />
+              <van-cell title="医生职位" value="{{ item.position }}" />
+              <van-cell title="联系电话" value="{{ item.dphone }}" />
+              <view data-index="{{index}}" bindtap="showPopup">
+                <van-button type="primary">立即预约</van-button>
+              </view>
+            </van-cell-group>
+          </view>
+        </van-tab>
+      </van-tabs>
+    </view>
+  </view>
+  <van-popup show="{{ show }}" round position="bottom" bind:close="onClose">
+    <van-datetime-picker bind:confirm="appointment"   bind:cancel="onClose" type="date" value="{{ currentDate }}" bind:input="onInput" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+  </van-popup>

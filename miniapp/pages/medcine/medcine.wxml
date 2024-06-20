@@ -1,0 +1,70 @@
+<!--pages/medcine/medcine.wxml-->
+<view wx:if="{{!user.id}}">
+  <view style="padding: 20rpx 0; margin-top: 50rpx;">
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      未查询到账号
+    </view>
+    <view style="font-size: 45rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      请先前往“我的”进行登录/注册
+    </view>
+    <view style="margin: 60rpx 100rpx">
+      <van-button type="primary" bind:click="goToMy">前往“我的”</van-button>
+    </view>
+  </view>
+</view>
+
+<view wx:elif="{{!user.realname}}">
+  <view style="padding: 20rpx 0; margin-top: 50rpx;">
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      未查询到就诊信息
+    </view>
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      请先点击下方按钮添加
+    </view>
+  </view>
+  <view style="margin: 60rpx 100rpx">
+    <van-button type="primary" bind:click="addInformation">添加就诊信息</van-button>
+  </view>
+</view>
+
+<view style="margin: 100rpx 0;" >
+
+  <view wx:if="{{user.realname}}">
+    <view style="padding: 20rpx 0; margin-top: 0rpx;">
+      <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+        取药
+      </view>
+    </view>
+    <view style="margin: 10rpx 100rpx">
+      <van-button type="info" bind:click="showPicture">出示取药码</van-button>
+  </view>
+  <van-popup show="{{ show }}" 
+  round
+  position="top"
+  bind:after-enter="onEnter"
+  bind:close="onClose"
+  bind:before-leave="onClose">
+  <view style="margin-top: 150rpx; text-align: center; font-size: 30px; color:#1989FA;">请出示给药房工作人员</view>
+  <view wx:if="{{user.id}}" style="display:flex; justify-content: center; ">
+  <image src="{{src}}" style="height: 200rpx;" mode="aspectFill"/>
+  <view style="margin-bottom: 250rpx;"> </view>
+</view>
+</van-popup>
+    <van-divider />
+    <view wx:for="{{medcineList}}" wx:key="did" style="padding: 20rpx">
+            <van-cell-group inset>
+              <van-cell title="药品名称" value="{{ item.name }}" />
+              <van-cell title="药品通用名" value="{{ item.genericName }}" />
+              <van-cell title="药品分类" value="{{ item.drugClassification }}" />
+              <van-cell title="剂型" value="{{ item.dosageForm }}" />
+              <van-cell title="储存条件" value="{{ item.storageCondition }}" />
+              <van-cell title="使用剂量" value="{{ item.useDose }}" />
+              <van-cell title="适用症/功能主治" value="{{ item.indications }}" />
+              <van-cell title="开药数量" value="{{ item.mnumber }}" />
+              <van-cell title="药品单价" value="{{ item.price }}" />
+              <van-cell title="有效期" value="{{ item.validity }}" />
+              <van-cell title="开药时间" value="{{ item.ptime }}" />
+            </van-cell-group>
+          </view>
+  </view>
+</view>

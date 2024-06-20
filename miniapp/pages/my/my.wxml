@@ -1,0 +1,36 @@
+<view style="margin: 100rpx 0;">
+  <view style="margin: 40rpx; text-align: center;">
+    <van-icon name="user-circle-o" size="50px" color="#1989FA" />
+  </view>
+  <van-cell-group inset>
+    <van-cell title="用户名" value="{{ user.username }}" />
+    <view wx:if="{{user.realname}}">
+      <van-cell title="姓名" value="{{ user.realname }}" />
+    </view>
+    <view wx:if="{{user.realname}}">
+      <van-cell title="性别" value="{{ user.sex }}" />
+    </view>
+    <view wx:if="{{user.realname}}">
+      <van-cell title="联系电话" value="{{ user.phone }}" />
+    </view>
+    <view wx:if="{{user.realname}}">
+      <van-cell title="出生日期" value="{{ user.birthday }}" />
+    </view>
+    <view wx:if="{{user.realname}}">
+      <van-cell title="家庭住址" value="{{ user.address }}" />
+    </view>
+      <!-- <van-cell title="紧急联系人电话" value="{{ user.fphone }}" /> -->
+  </van-cell-group>
+</view>
+<view style="margin: 30rpx 100rpx">
+      <van-button type="primary" bind:click="searchAppoint" plain>查看我的预约信息</van-button>
+    </view>
+  <view style="margin: 30rpx 100rpx">
+      <van-button type="primary" bind:click="addInformation">添加就诊信息</van-button>
+    </view>
+    <view style="margin: 30rpx 100rpx">
+      <van-button type="info" bind:click="addFace">添加人脸信息</van-button>
+    </view>
+      <view style="margin: 30rpx 100rpx">
+      <van-button type="warning"  bind:click="exit">退出登录</van-button>
+    </view>

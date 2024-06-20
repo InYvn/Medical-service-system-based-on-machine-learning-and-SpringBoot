@@ -1,0 +1,7 @@
+<!--pages/faceRecognition/faceRecognition.wxml-->
+<view class="camera-box">
+  <camera device-position="front" flash="off" binderror="error" class="camera"></camera>
+  <view class="face-box">
+    <van-button type="info" class="face" bindtap="takePhoto"> 人脸识别 </van-button>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/baseinformation/baseinformation.wxss */
+.van-button--primary{
+  width: 100%;
+}

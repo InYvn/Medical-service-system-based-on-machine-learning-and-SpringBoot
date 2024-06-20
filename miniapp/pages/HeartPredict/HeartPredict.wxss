@@ -1,0 +1,4 @@
+/* pages/HeartPredict/HeartPredict.wxss */
+.van-button--primary{
+  width: 100%;
+}

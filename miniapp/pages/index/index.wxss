@@ -1,0 +1,17 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: scroll;
+}
+swiper{
+  width: 100%;
+  height: calc(100vw*442/810);
+}
+image{
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+/* pages/diseasePredict/diseasePredict.wxss */
+.tagSelector {
+  text-align: left;
+  font-size: larger;
+  font-weight: bolder;
+  margin: 20rpx 30rpx 40rpx 40rpx;
+}
+
+.hot-search-tag {
+  margin-top: 20rpx;
+}
+
+.van-tag {
+  margin: 10rpx 10rpx;
+}
+
+.scroll-y{
+  height: 745rpx;
+  /* background-color: skyblue; */
+}
+
+

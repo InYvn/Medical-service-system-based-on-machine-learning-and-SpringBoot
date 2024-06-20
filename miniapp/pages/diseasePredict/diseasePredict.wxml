@@ -1,0 +1,43 @@
+<!--pages/diseasePredict/diseasePredict.wxml-->
+
+<view style="margin: 100rpx 0;">
+
+  <view>
+    <view style="padding: 20rpx 0; margin-top: 0rpx;">
+      <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+        疾病预测
+      </view>
+    </view>
+    <view style="padding: 10rpx 0; margin-top: 0rpx;">
+      <view style="font-size: 30rpx;font-weight: thin; text-align: center; color: #1989FA;">
+        请选择您所出现的症状
+      </view>
+    </view>
+    <scroll-view class="scroll-y" scroll-y>
+    
+    <view class="tagSelector">
+      <view class="hot-search-tag">
+        <block wx:for="{{ hotTag }}" wx:key="index">
+          <van-tag round color="{{ item.active?selectColor:tagBgColor }}" text-color="#333333"  size="large" bindtap="itemSelected" data-index="{{ index }}">{{ item.tag }}
+          </van-tag>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+  </view>
+</view>
+
+<view style="margin: 0rpx 250rpx">
+      <van-button type="info" bind:click="predict" plain>
+          预测疾病
+      </van-button>
+</view>
+
+<van-dialog use-slot title="预测结果" show="{{show}}" bind:close="onClose">
+    <view style="margin-left: 150rpx;margin-top: 25rpx;">
+      本次结果为：{{result}}
+    </view>
+    <view style="text-align: center;margin-top: 25rpx;font-size: 25rpx;color: #9aa0a7;">
+      温馨提示：预测结果仅供参考，请遵医嘱
+    </view>
+</van-dialog>

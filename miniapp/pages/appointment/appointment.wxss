@@ -1,0 +1,4 @@
+/* pages/appointment/appointment.wxss */
+.van-button--primary{
+  width: 100%;
+}

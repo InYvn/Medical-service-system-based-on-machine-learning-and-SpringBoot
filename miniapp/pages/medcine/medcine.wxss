@@ -1,0 +1,11 @@
+/* pages/medcine/medcine.wxss */
+.van-button--info{
+  width: 100%;
+}
+.van-button--primary{
+  width: 100%;
+}
+.imagesize{
+  display:flex;                    
+  justify-content: center;         
+}

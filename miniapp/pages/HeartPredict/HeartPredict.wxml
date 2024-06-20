@@ -1,0 +1,94 @@
+<!--pages/HeartPredict/HeartPredict.wxml-->
+<!-- 引入wxs文件 -->
+<wxs src="../../request/timefilter.wxs" module="module1" />
+<view style="padding: 20rpx 0; margin-top: 50rpx;">
+  <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+    填写信息
+  </view>
+  <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+    预测患有心脏病风险
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    model:value="{{ age }}"
+    label="年龄"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ height }}"
+    placeholder="单位 cm"
+    label="身高"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ weight }}"
+    placeholder="单位 kg"
+    label="体重"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ cholesterol }}"
+    placeholder="单位 mg/dL"
+    label="胆固醇指标"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ glucose }}"
+    placeholder="单位 mg/dL"
+    label="葡萄糖指标"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ exercise }}"
+    placeholder="单位 小时"
+    label="周运动时长"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+<van-radio-group value="{{ radsmoke }}" bind:change="onChangeSmo" direction="horizontal">
+    <view>是否吸烟</view>
+    <van-radio name="1" style="margin: 0rpx 50rpx;">是</van-radio>
+    <van-radio name="0">否</van-radio>
+</van-radio-group>
+  </view>
+  <view style="margin: 30rpx 100rpx">
+<van-radio-group value="{{ radsex }}" bind:change="onChangeSex" direction="horizontal">
+    <view>请选择性别</view>
+    <van-radio name="1" style="margin: 0rpx 50rpx;">男</van-radio>
+    <van-radio name="0">女</van-radio>
+</van-radio-group>
+  </view>
+  
+  
+  
+  
+  <view style="margin: 60rpx 100rpx">
+ <van-button type="primary" bind:click="submit">确 定</van-button>
+ </view>
+</view>
+
+<van-dialog use-slot title="预测结果" show="{{show}}" bind:close="onClose">
+    <view style="margin-left: 60rpx;margin-top: 25rpx;">
+      本次结果为：
+    </view>
+    <view style="margin-top: 10rpx;text-align: center;">
+      {{result}}
+    </view>
+    
+</van-dialog>

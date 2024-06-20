@@ -1,0 +1,11 @@
+/* pages/my/my.wxss */
+/* pages/my/my.wxss */
+.van-button--primary{
+  width: 100%;
+}
+.van-button--info{
+  width: 100%;
+}
+.van-button--warning{
+  width: 100%;
+}

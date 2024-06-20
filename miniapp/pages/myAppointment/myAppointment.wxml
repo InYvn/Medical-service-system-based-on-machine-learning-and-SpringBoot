@@ -1,0 +1,46 @@
+<!--pages/myAppointment/myAppointment.wxml-->
+<view style="margin: 20rpx 0;">
+  <view style="padding: 40rpx 0; margin-top: 50rpx;">
+    <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+      我的预约信息
+    </view>
+    <view style="margin: 30rpx 100rpx">
+      <van-button type="info" bind:click="showPicture">出示身份码</van-button>
+    </view>
+    <van-popup show="{{ showT }}" 
+  round
+  position="top"
+  bind:after-enter="onEnter"
+  bind:close="onCloseT"
+  bind:before-leave="onCloseT">
+  <view style="margin-top: 110rpx; text-align: center; font-size: 30px; color:#1989FA;">请出示给医护人员</view>
+  <view style="display:flex; justify-content: center; ">
+  <image src="{{src}}" style="height: 200rpx;" mode="aspectFill"/>
+  <view style="margin-bottom: 250rpx;"> </view>
+</view>
+</van-popup>
+  </view>
+  
+  <van-divider />
+  <view>
+    <view wx:for="{{myAppointList}}" wx:key="did" style="padding: 20rpx">
+      <van-cell-group inset>
+        <van-cell title="医生姓名" value="{{ item.dname }}" />
+        <van-cell title="医生职位" value="{{ item.position }}" />
+        <van-cell title="性别" value="{{ item.dsex }}" />
+        <van-cell title="联系电话" value="{{ item.dphone }}" />
+        <van-cell title="预约时间" value="{{ item.reservedate }}" />
+        <van-cell title="所属科室" value="{{ item.kname }}" />
+        <view data-index="{{index}}" bindtap="cancelappointment">
+          <van-button type="primary">取消预约</van-button>
+        </view>
+        <view data-index="{{index}}" bindtap="showPopup">
+          <van-button type="info" plain>修改预约时间</van-button>
+        </view>
+      </van-cell-group>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" round position="bottom" bind:close="onClose">
+    <van-datetime-picker bind:confirm="update"   bind:cancel="onClose" type="date" value="{{ currentDate }}" bind:input="onInput" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+  </van-popup>

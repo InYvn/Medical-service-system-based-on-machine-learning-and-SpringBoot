@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<swiper
+autoplay="{{true}}"
+ circular="{{true}}"
+ indicator-dots="{{true}}"
+ interval="2000"
+>
+<swiper-item>
+		<image src="{{swip1}}" />
+	</swiper-item>
+	<swiper-item>
+		<image src="{{swip2}}" />
+	</swiper-item>
+	<!-- <swiper-item>
+		<image src="{{swip3}}" />
+	</swiper-item>
+  <swiper-item>
+		<image src="{{swip4}}" />
+	</swiper-item> -->
+</swiper>
+<view  style="margin-top: 50rpx;" >
+  <van-divider
+  contentPosition="center"
+  customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"
+>
+  欢迎使用医疗服务系统
+</van-divider>
+</view>
+<view  style="margin-top: 50rpx;">
+  <van-cell-group inset>
+    <van-cell icon="chart-trending-o" is-link link-type="navigateTo"
+  url="../diseasePredict/diseasePredict" title="疾病预测"/>
+  <van-cell icon="like-o" is-link link-type="navigateTo"
+  url="../HeartPredict/HeartPredict" title="心脏病预测"/>
+  <van-cell icon="user-o" is-link link-type="switchTab"
+  url="../my/my" title="就诊信息"/>
+  <!-- <view wx:if="{{user.realname}}"> -->
+    <van-cell icon="clock-o" is-link link-type="navigateTo"
+  url="../myAppointment/myAppointment" title="我的预约"/>
+  <!-- </view> -->
+  <!-- <view wx:if="{{!user.id}}">
+    <van-cell icon="clock-o" is-link link-type="navigateTo"
+  url="../login/login" title="我的预约"/>
+  </view> -->
+  
+  <van-cell icon="description-o" is-link link-type="switchTab"
+  url="../medcine/medcine" title="前往取药"/>
+  <van-cell icon="calendar-o" is-link link-type="switchTab"
+  url="../appointment/appointment" title="前往预约"/>
+  <view bindtap="local">
+    <van-cell icon="location-o" is-link link-type="switchTab"
+   title="前往医院"/>
+  </view>
+  
+</van-cell-group>
+</view>

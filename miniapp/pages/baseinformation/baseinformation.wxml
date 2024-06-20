@@ -1,0 +1,77 @@
+<!--pages/baseinformation/baseinformation.wxml-->
+<!-- 引入wxs文件 -->
+<wxs src="../../request/timefilter.wxs" module="module1" />
+<view style="padding: 20rpx 0; margin-top: 50rpx;">
+  <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+    填写信息
+  </view>
+  <view style="font-size: 60rpx;font-weight: bold; text-align: center; color: #1989FA;">
+    享受便捷就诊体验
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    model:value="{{ realname }}"
+    placeholder="请输入姓名"
+    left-icon="user-o"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ phone }}"
+    placeholder="请输入联系电话"
+    left-icon="phone-o"
+  />
+  </view>
+  <view style="margin: 30rpx 100rpx">
+<van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+    <van-radio name="1" style="margin: 0rpx 50rpx;">男</van-radio>
+    <van-radio name="2">女</van-radio>
+</van-radio-group>
+  </view>
+  <view style="margin: 30rpx 100rpx">
+    <van-cell title="出生日期：{{module1.time_format(currentDate)}}" is-link bind:click="showPopup" />
+  </view>
+  <van-popup show="{{ show }}" round position= "bottom" bind:close="onClose">
+    <van-datetime-picker
+      bind:confirm="onConfirm"
+      type="date"
+      value="{{ currentDate }}"
+      bind:input="onInput"
+      min-date="{{ minDate }}"
+      max-date="{{ maxDate }}"
+      formatter="{{ formatter }}"
+    />
+  </van-popup>
+  
+  
+  <view style="margin: 30rpx 100rpx">
+    <van-cell title="地区选择：{{area}}" is-link bind:click="show2Popup" />
+  </view>
+  <van-popup show="{{ show2 }}" round position= "bottom" bind:close="onClose2">
+    <van-area area-list="{{ areaList }}" bind:confirm="onAreaConfirm"/>
+  </van-popup>
+  <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    bind:focus="inputCheck"
+    model:value="{{ detailAddress }}"
+    placeholder="请输入详细家庭住址"
+    left-icon="location-o"
+  />
+  </view>
+  <!-- <view style="margin: 30rpx 100rpx">
+    <van-field
+    adjust-position
+    type="number"
+    model:value="{{ fphone }}"
+    placeholder="请输入家属电话"
+    left-icon="info-o"
+  />
+  </view> -->
+  <view style="margin: 60rpx 100rpx">
+ <van-button type="primary" bind:click="submit">确 定</van-button>
+ </view>
+</view>
